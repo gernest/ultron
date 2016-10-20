@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="697px" height="991px" viewBox="0 0 697 991" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Eye 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="63.8222727%" id="radialGradient-1">
+            <stop stop-color="#7CDDFF" offset="0%"></stop>
+            <stop stop-color="#B3F1FF" offset="100%"></stop>
+        </radialGradient>
+        <path d="M94.8394744,245.246518 C119.924193,231.913184 144.861197,218.003545 170.093632,205.246518 C236.230596,171.808956 317.634643,159.735526 388.048083,171.246518 C430.684995,178.216681 474.039961,188.717523 511.781725,219.246518 C546.274139,247.14714 554.319766,272.824215 575.753664,320.246518 C602.80108,380.088677 645.524679,438.599142 637.613619,517.242611 C630.723973,585.732259 578.362466,619.033855 539.866431,642.242611 C459.908329,690.448304 374.307717,706.39225 288.86178,683.242611 C228.192824,666.805734 159.603981,615.135656 106.767098,578.242611 C77.077866,557.512279 48.8024405,527.975182 29.4421535,489.242611 C2.5744878,435.490632 -2.04273254,346.534515 32.9767727,298.246518 C43.5508672,283.666019 57.8069632,274.04102 70.9402855,265.246518 L94.8394744,245.246518 Z" id="path-2"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="20" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.292949021   0 0 0 0 0.938517306   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <ellipse id="path-4" cx="322.5" cy="580" rx="46.5" ry="31"></ellipse>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.239130435 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-6" font-family="HoboStd, Hobo Std" font-size="212" font-weight="400" fill="#4A4A4A">
+            <tspan x="150" y="902">Eye</tspan>
+        </text>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="18" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.108695652 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Path-2">
+            <use fill="url(#radialGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+        </g>
+        <g id="Group" transform="translate(348.493164, 348.826641) rotate(45.000000) translate(-348.493164, -348.826641) translate(104.493164, 104.826641)">
+            <ellipse id="Oval" stroke="#4A4A4A" stroke-width="3" fill="#FFFFFF" transform="translate(244.125129, 243.764196) rotate(135.000000) translate(-244.125129, -243.764196) " cx="244.125129" cy="243.764196" rx="205.118425" ry="139"></ellipse>
+            <ellipse id="Oval-2" fill="#4A4A4A" transform="translate(244.125129, 312.000000) rotate(135.000000) translate(-244.125129, -312.000000) " cx="244.125129" cy="312" rx="60.5" ry="36"></ellipse>
+        </g>
+        <path d="M360.842526,693.311545 C390.842526,622.311545 326.394647,652.311545 326.293373,626.585647 C326.192099,600.859749 360.842526,588.311545 360.842526,555.311545 C360.842526,522.311545 298.842526,543.311545 278.842526,588.311545 C264.340043,620.942132 330.842526,764.311545 360.842526,693.311545 Z" id="Oval-3" fill="#FFDCB5" transform="translate(322.802372, 626.000910) rotate(90.000000) translate(-322.802372, -626.000910) "></path>
+        <g id="Oval-2">
+            <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+            <use fill="#4A4A4A" fill-rule="evenodd" xlink:href="#path-4"></use>
+        </g>
+        <g id="Eye" fill-opacity="1" fill="#4A4A4A">
+            <use filter="url(#filter-7)" xlink:href="#text-6"></use>
+            <use xlink:href="#text-6"></use>
+        </g>
+    </g>
+</svg>
