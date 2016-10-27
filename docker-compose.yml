@@ -1,0 +1,40 @@
+version: '2'
+
+volumes:
+  postgres-data:
+    driver: local
+
+services:
+  db:
+    image: postgres:9.5.1
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: P4Ssw0rD!
+
+  app: &base
+    image: thelastinuit/utron:1.0
+    command: bash
+    working_dir: /usr/src/
+    volumes:
+      - .:/usr/src
+    stdin_open: true
+    tty: true
+    links:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_dev
+      GOPATH: /usr/src
+  web:
+    <<: *base
+    ports:
+      - 80:80
+    command: go run ultron/main.go
+  
+  test:
+    <<: *base
+    command: $GOPATH/bin/goconvey ultron/
+    environment:
+      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_test
