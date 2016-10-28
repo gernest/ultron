@@ -1,10 +1,11 @@
 {
-	"app_name": "utron web app",
-	"base_url": "http://localhost:8090",
-	"port": 8090,
-	"verbose": false,
-	"static_dir": "static",
-	"view_dir": "views",
-	"database": "postgres",
-	"database_conn": "postgres://postgres:postgres@localhost/todo"
+  "app_name": "Ultron: Bullet Journal",
+  "base_url": "http://0.0.0.0:80",
+  "port": 80,
+  "verbose": false,
+  "static_dir": "static",
+  "view_dir": "views",
+  "database": "postgres",
+  "database_conn": "postgres://postgres:P4Ssw0rD!@db:5432/ultron_dev?sslmode=disable",
+  "automigrate": true
 }

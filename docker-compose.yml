@@ -22,19 +22,24 @@ services:
       - .:/usr/src
     stdin_open: true
     tty: true
+    depends_on:
+      - db
     links:
       - db
     environment:
-      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_dev
-      GOPATH: /usr/src
+      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_dev?sslmode=disable
   web:
     <<: *base
+    entrypoint: /usr/src/development-entrypoint.sh
     ports:
       - 80:80
-    command: go run ultron/main.go
-  
+    command: go run main.go
+
   test:
     <<: *base
-    command: $GOPATH/bin/goconvey ultron/
+    entrypoint: /usr/src/test-entrypoint.sh
+    command: goconvey -host=0.0.0.0
+    ports:
+      - 8080:8080
     environment:
-      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_test
+      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_test?sslmode=disable

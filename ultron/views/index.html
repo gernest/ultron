@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Utron Todo MVC</title>
-	<link href="/static/todo.css" rel="stylesheet">
-</head>
-<body>
-<form method="post" action="/create">
-    <table>
-        <tr>
-           <th>
-               Create A TODO
-           </th>
-        </tr>
-        <tr>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title>Ultron | Bullet Journal</title>
+    <link href="/static/ultron.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header></header>
+      <article>
+
+        <table>
+          <tr>
+            <th>
+              My TODO LIST
+            </th>
+          </tr>
+          {{range $k,$v:=.List}}
+          <tr>
             <td>
-                <input name="body">
+              {{$v.ID}}
             </td>
             <td>
-                <button type="submit">create</button>
+              {{$v.Body}}
             </td>
-        </tr>
-    </table>
-</form>
-<table>
-    <tr>
-        <th>
-            My TODO LIST
-        </th>
-    </tr>
-    {{range $k,$v:=.List}}
-    <tr>
-        <td>
-            {{$v.ID}}
-        </td>
-        <td>
-            {{$v.Body}}
-        </td>
-        <td>
-            <a href="/delete/{{$v.ID}}">
+            <td>
+              <a href="/delete/{{$v.ID}}">
                 <button>Delete</button>
-            </a>
-        </td>
-    </tr>
-    {{end}}
-</table>
-</body>
+              </a>
+            </td>
+          </tr>
+          {{end}}
+          <tr>
+            <td colspan="2">
+              <form method="post" action="/create">
+                <input name="task" />
+              </form>
+            </td>
+          </tr>
+        </table>
+
+
+      </article>
+
+      <aside class="aside-1"></aside>
+      <aside class="aside-2"></aside>
+
+      <footer></footer>
+    </div>
+  </body>
 </html>

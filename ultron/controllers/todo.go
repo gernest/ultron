@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"./../models"
 	"github.com/gernest/utron"
-	"github.com/gernest/utron/fixtures/todo/models"
 	"github.com/gorilla/schema"
 )
 

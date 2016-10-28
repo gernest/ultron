@@ -1,9 +1,9 @@
 package main
 
 import (
+	_ "./controllers"
+	_ "./models"
 	"github.com/gernest/utron"
-	_ "github.com/gernest/utron/fixtures/todo/controllers"
-	_ "github.com/gernest/utron/fixtures/todo/models"
 )
 
 func main() {

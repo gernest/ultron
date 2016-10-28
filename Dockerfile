@@ -5,3 +5,4 @@ RUN apt-get update && apt-get install -y git
 
 RUN go get github.com/smartystreets/goconvey
 RUN go get github.com/gernest/utron
+RUN go get github.com/gorilla/schema
