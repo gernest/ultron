@@ -11,6 +11,7 @@
   font-weight: bold;
   text-align: center;
   margin: auto;
+  position: relative;
 }
 
 .wrapper > * {
@@ -79,3 +80,38 @@ body {
   font-size: 26px;
 }
 
+div.bj-menu-container {
+  position: absolute;
+  top: 180px;
+  left: -60px;
+  width: 50px;
+  height: 300px;
+}
+
+div.bj-menu-item {
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+div.bj-menu-item:nth-child(1) {
+  transform: rotate(270deg);
+  transform-origin: 35px 30px;
+  width: 90px;
+}
+
+div.bj-menu-item:nth-child(2) {
+  transform: rotate(270deg);
+  transform-origin: 70px 65px;
+  width: 180px;
+}
+
+div.bj-menu-item:nth-child(3) {
+  transform: rotate(270deg);
+  transform-origin: 90px 85px;
+  width: 70px;
+}
+
+div.bj-menu-item:hover,
+selected {
+  border-bottom: 2px solid #ff0000;
+}
