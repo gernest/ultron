@@ -12,63 +12,71 @@
     <meta name="theme-color" content="#ffffff" />
     <meta charset="UTF-8" />
     <title>Ultron | Bullet Journal</title>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <link href="/static/ultron.css" rel="stylesheet" />
+    <script src="/static/ultron.js"></script>
   </head>
   <body>
     <div class="wrapper">
-      <header></header>
-
-      <div class="bj-menu-container">
-        <div class="bj-menu-item">
-          Daily
+      <header class="header"></header>
+      <article class="main">
+        <div id="daily-container">
+          <table>
+            <tr>
+              <th>
+                My TODO LIST
+              </th>
+            </tr>
+            {{range $k,$v:=.List}}
+            <tr>
+              <td>
+                {{$v.ID}}
+              </td>
+              <td>
+                {{$v.Body}}
+              </td>
+              <td>
+                <a href="/delete/{{$v.ID}}">
+                  <button>Delete</button>
+                </a>
+              </td>
+            </tr>
+            {{end}}
+            <tr>
+              <td colspan="2">
+                <form method="post" action="/create">
+                  <input name="task" />
+                </form>
+              </td>
+            </tr>
+          </table>
         </div>
-        <div class="bj-menu-item">
-          Monthly
+
+        <div id="monthly-container" class="hide">
+          monthly
         </div>
-        <div class="bj-menu-item">
-          Future
+
+        <div id="future-container" class="hide">
+          future
         </div>
-      </div>
-
-      <article>
-
-        <table>
-          <tr>
-            <th>
-              My TODO LIST
-            </th>
-          </tr>
-          {{range $k,$v:=.List}}
-          <tr>
-            <td>
-              {{$v.ID}}
-            </td>
-            <td>
-              {{$v.Body}}
-            </td>
-            <td>
-              <a href="/delete/{{$v.ID}}">
-                <button>Delete</button>
-              </a>
-            </td>
-          </tr>
-          {{end}}
-          <tr>
-            <td colspan="2">
-              <form method="post" action="/create">
-                <input name="task" />
-              </form>
-            </td>
-          </tr>
-        </table>
-
-
       </article>
 
-      <aside class="aside-1"></aside>
-      <aside class="aside-2"></aside>
+      <aside class="aside aside-1">
+        <div class="bj-menu-container">
+          <div class="bj-menu-item selected" id="daily-menu-item">
+            Daily
+          </div>
+          <div class="bj-menu-item" id="monthly-menu-item">
+            Monthly
+          </div>
+          <div class="bj-menu-item" id="future-menu-item">
+            Future
+          </div>
+        </div>
+      </aside>
+      <aside class="aside aside-2"></aside>
 
-      <footer></footer>
+      <footer class="footer"></footer>
     </div>
   </body>
 </html>
