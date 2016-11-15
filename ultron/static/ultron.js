@@ -1,28 +1,28 @@
 $(document).on("click", "#daily-menu-item", function(event) {
-  $(this).toggleClass("selected");
-  $("#monthly-menu-item").toggleClass("selected");
-  $("#future-menu-item").toggleClass("selected");
-  $("#daily-container").toggleClass("hide");
-  $("#monthly-container").toggleClass("hide");
-  $("#future-container").toggleClass("hide");
+  $(this).addClass("selected");
+  $("#monthly-menu-item").removeClass("selected");
+  $("#future-menu-item").removeClass("selected");
+  $("#daily-container").removeClass("hide");
+  $("#monthly-container").addClass("hide");
+  $("#future-container").addClass("hide");
 });
 
 $(document).on("click", "#monthly-menu-item", function(event) {
-  $(this).toggleClass("selected");
-  $("#daily-menu-item").toggleClass("selected");
-  $("#future-menu-item").toggleClass("selected");
-  $("#daily-container").toggleClass("hide");
-  $("#monthly-container").toggleClass("hide");
-  $("#future-container").toggleClass("hide");
+  $(this).addClass("selected");
+  $("#daily-menu-item").removeClass("selected");
+  $("#future-menu-item").removeClass("selected");
+  $("#daily-container").addClass("hide");
+  $("#monthly-container").removeClass("hide");
+  $("#future-container").addClass("hide");
 });
 
 $(document).on("click", "#future-menu-item", function(event) {
-  $(this).toggleClass("selected");
-  $("#daily-menu-item").toggleClass("selected");
-  $("#monthly-menu-item").toggleClass("selected");
-  $("#daily-container").toggleClass("hide");
-  $("#monthly-container").toggleClass("hide");
-  $("#future-container").toggleClass("hide");
+  $(this).addClass("selected");
+  $("#daily-menu-item").removeClass("selected");
+  $("#monthly-menu-item").removeClass("selected");
+  $("#daily-container").addClass("hide");
+  $("#monthly-container").addClass("hide");
+  $("#future-container").removeClass("hide");
 });
 
 

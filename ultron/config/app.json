@@ -1,6 +1,6 @@
 {
   "app_name": "Ultron: Bullet Journal",
-  "base_url": "http://0.0.0.0:80",
+  "base_url": "http://0.0.0.0:234",
   "port": 80,
   "verbose": false,
   "static_dir": "static",

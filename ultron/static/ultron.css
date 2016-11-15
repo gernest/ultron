@@ -1,10 +1,10 @@
 @import url('//fonts.googleapis.com/css?family=Amatic+SC');
 
 * {
-  -webkit-transition: all 75ms ease-out;
-  -moz-transition: all 75ms ease-out;
-  -o-transition: all 75ms ease-out;
-  transition: all 75ms ease-out;
+  -webkit-transition: all 175ms ease-out;
+  -moz-transition: all 175ms ease-out;
+  -o-transition: all 175ms ease-out;
+  transition: all 175ms ease-out;
 }
 
 body {
@@ -57,6 +57,16 @@ div.selected {
 
 .hide {
   display: none;
+}
+
+.cat {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  padding: 0;
+}
+.cat > img {
+  width: 200px;
 }
 
 .wrapper {

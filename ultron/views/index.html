@@ -22,18 +22,16 @@
       <article class="main">
         <div id="daily-container">
           <table>
-            <tr>
-              <th>
-                My TODO LIST
-              </th>
-            </tr>
             {{range $k,$v:=.List}}
             <tr>
               <td>
-                {{$v.ID}}
+                {{$.v.Signifier}}
               </td>
-              <td>
-                {{$v.Body}}
+              <td class="status {{$v.Status}}">
+                {{$.v.Type}}
+              </td>
+              <td id="task-{{$v.ID}}">
+                {{$v.Content}}
               </td>
               <td>
                 <a href="/delete/{{$v.ID}}">
