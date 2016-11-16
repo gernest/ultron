@@ -22,16 +22,17 @@ type Journal struct {
 
 /*
 	Home renders the journal which consist of three
-	views so fat
+	views so far
 	- Daily
 	- Monthly
 	- Future
+  However, this is sort of a SPA
 */
 func (t *Journal) Home() {
 	tasks := []*models.Task{}
 	t.Ctx.DB.Order("created_at desc").Find(&tasks)
 	t.Ctx.Data["List"] = tasks
-	t.Ctx.Template = "index"
+	t.Ctx.Template = "journal/index"
 	t.HTML(http.StatusOK)
 }
 
@@ -40,9 +41,10 @@ func (t *Journal) Home() {
 */
 func (t *Journal) Create() {
 	task := &models.Task{}
-	req := t.Ctx.Request()
-	_ = req.ParseForm()
-	if err := decoder.Decode(task, req.PostForm); err != nil {
+	request := t.Ctx.Request()
+	_ = request.ParseForm()
+
+	if err := decoder.Decode(task, request.PostForm); err != nil {
 		t.Ctx.Data["Message"] = err.Error()
 		t.Ctx.Template = "error"
 		t.HTML(http.StatusInternalServerError)

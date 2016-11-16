@@ -15,7 +15,7 @@ services:
       POSTGRES_PASSWORD: P4Ssw0rD!
 
   app: &base
-    image: thelastinuit/utron:1.0
+    image: thelastinuit/utron:1.1
     command: bash
     working_dir: /usr/src/
     volumes:
