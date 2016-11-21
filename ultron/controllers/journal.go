@@ -77,9 +77,9 @@ func (t *Journal) Delete() {
 func NewJournal() *Journal {
 	return &Journal{
 		Routes: []string{
-			"get;/;Home",
-			"post;/create;Create",
-			"get;/delete/{id};Delete",
+			"get;/api;Home",
+			"post;/api/tasks;Create",
+			"get;/api/tasks/{id};Delete",
 		},
 	}
 }
