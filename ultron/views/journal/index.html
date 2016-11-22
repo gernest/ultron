@@ -15,30 +15,25 @@ ndex<!DOCTYPE html>
     <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <link href="/static/ultron.css" rel="stylesheet" />
   </head>
-  <body id="app">
-    <div class="wrapper">
+  <body>
+    <div id="app" class="wrapper">
       <header class="header"></header>
       <article class="main">
         <div id="daily-container">
           <table>
-            {{range $k,$v:=.List}}
             <tr>
               <td>
-                {{$.v.Signifier}}
               </td>
-              <td class="status {{$v.Status}}">
-                {{$.v.Type}}
+              <td class="status">
               </td>
-              <td id="task-{{$v.ID}}">
-                {{$v.Content}}
+              <td id="task">
               </td>
               <td>
-                <a href="/delete/{{$v.ID}}">
+                <a href="/delete/1">
                   <button>Delete</button>
                 </a>
               </td>
             </tr>
-            {{end}}
             <tr>
               <td colspan="2">
                 <form method="post" action="/create">
