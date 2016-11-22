@@ -1,13 +1,13 @@
-# a bit different here as well:
-FROM golang:1.7.3-wheezy
+FROM golang
 
-RUN apt-get update && apt-get install -y git
+COPY . /go/src/github.com/thelastinuit/ultron
 
-RUN go get github.com/smartystreets/goconvey
-RUN go get github.com/gernest/utron
-RUN go get github.com/gorilla/schema
-RUN go get github.com/d4l3k/go-pry
-RUN go install github.com/smartystreets/goconvey
-RUN go install github.com/gernest/utron
-RUN go install github.com/gorilla/schema
-RUN go install github.com/d4l3k/go-pry
+WorkDir  /go/src/github.com/thelastinuit/ultron
+
+RUN go get -v
+
+RUN go install
+
+EXPOSE 8090
+
+CMD ["/go/bin/ultron"]
