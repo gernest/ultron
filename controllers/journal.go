@@ -4,15 +4,15 @@ import (
 	"net/http"
 	"strconv"
 
-	"./../models"
-	"github.com/gernest/utron"
+	"github.com/gernest/utron/controller"
 	"github.com/gorilla/schema"
+	"github.com/thelastinuit/ultron/models"
 )
 
 var decoder = schema.NewDecoder()
 
 type Journal struct {
-	*utron.BaseController
+	controller.BaseController
 	Routes []string
 }
 
@@ -57,7 +57,7 @@ func (t *Journal) Delete() {
 	t.Ctx.Redirect("/", http.StatusFound)
 }
 
-func NewJournal() *Journal {
+func NewJournal() controller.Controller {
 	return &Journal{
 		Routes: []string{
 			"get;/;Home",
@@ -66,8 +66,4 @@ func NewJournal() *Journal {
 			"delete;/api/tasks/{id};Delete",
 		},
 	}
-}
-
-func init() {
-	utron.RegisterController(NewJournal())
 }

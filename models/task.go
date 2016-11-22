@@ -1,10 +1,6 @@
 package models
 
-import (
-	"time"
-
-	"github.com/gernest/utron"
-)
+import "time"
 
 /*
 	A Task
@@ -19,8 +15,4 @@ type Task struct { /* using a custom name */
 	Signifier string    `schema:"signifier"`
 	CreatedAt time.Time `schema:"-"`
 	UpdatedAt time.Time `schema:"-"`
-}
-
-func init() {
-	utron.RegisterModels(&Task{})
 }
