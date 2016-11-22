@@ -1,28 +1,55 @@
-$(document).on("click", "#daily-menu-item", function(event) {
-  $(this).addClass("selected");
-  $("#monthly-menu-item").removeClass("selected");
-  $("#future-menu-item").removeClass("selected");
-  $("#daily-container").removeClass("hide");
-  $("#monthly-container").addClass("hide");
-  $("#future-container").addClass("hide");
+Vue.http.options.root = '/root';
+Vue.http.headers.common['Content-Type'] = 'application/json';
+
+new Vue({
+    el: '#app',
+    data: {
+      task: { title: '', detail: '', date: '' },
+      tasks: []
+    },
+    delimiters: ['${', '}'],
+    mounted: function () {
+      this.fetchTasks();
+    },
+    methods: {
+      fetchTasks: function () {
+        var tasks = [];
+        this.$http.get('/tasks/', "", {emulateJSON: true})
+        .then(response => response.json())
+        .then(result => {
+            Vue.set(this.$data, 'tasks', result);
+            console.log("success in getting tasks");
+        })
+        .catch(error => {
+            console.log(error);
+        });
+      },
+      addTask: function () {
+        if (this.task.title.trim()) {
+          this.$http.post('/tasks/', this.task,{emulateJSON: true})
+          .then(response => response)
+          .then( result => {
+              this.tasks.push(this.task);
+              console.log('Task added!');
+              this.task = { title: '', detail: '', date: '' };
+          }).catch( error => {
+              console.log(error);
+          });
+        }
+      },
+      deleteTask: function (index) {
+        if (confirm('Really want to delete？')) {
+          console.log(index);
+          this.$http.delete('/tasks/' + index)
+          .then(response => response)
+          .then( result => {
+              console.log(result);
+              this.tasks.splice(index, 1);
+          }).catch( error => {
+              console.log(error);
+              alert("unable to delete")
+          });
+        }
+      }
+    }
 });
-
-$(document).on("click", "#monthly-menu-item", function(event) {
-  $(this).addClass("selected");
-  $("#daily-menu-item").removeClass("selected");
-  $("#future-menu-item").removeClass("selected");
-  $("#daily-container").addClass("hide");
-  $("#monthly-container").removeClass("hide");
-  $("#future-container").addClass("hide");
-});
-
-$(document).on("click", "#future-menu-item", function(event) {
-  $(this).addClass("selected");
-  $("#daily-menu-item").removeClass("selected");
-  $("#monthly-menu-item").removeClass("selected");
-  $("#daily-container").addClass("hide");
-  $("#monthly-container").addClass("hide");
-  $("#future-container").removeClass("hide");
-});
-
-
