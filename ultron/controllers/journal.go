@@ -11,34 +11,23 @@ import (
 
 var decoder = schema.NewDecoder()
 
-/*
-	As far as I can see, only one controller I need
-	That is Journal
-*/
 type Journal struct {
 	*utron.BaseController
 	Routes []string
 }
 
-/*
-	Home renders the journal which consist of three
-	views so far
-	- Daily
-	- Monthly
-	- Future
-  However, this is sort of a SPA
-*/
 func (t *Journal) Home() {
-	tasks := []*models.Task{}
-	t.Ctx.DB.Order("created_at desc").Find(&tasks)
-	t.Ctx.Data["List"] = tasks
 	t.Ctx.Template = "journal/index"
 	t.HTML(http.StatusOK)
 }
 
-/*
-	Create a type of task
-*/
+func (t *Journal) Index() {
+	tasks := []*models.Task{}
+	t.Ctx.DB.Order("created_at desc").Find(&tasks)
+	t.Ctx.Data["data"] = tasks
+	t.JSON(200)
+}
+
 func (t *Journal) Create() {
 	task := &models.Task{}
 	request := t.Ctx.Request()
@@ -55,9 +44,6 @@ func (t *Journal) Create() {
 	t.Ctx.Redirect("/", http.StatusFound)
 }
 
-/*
-	Delete a type of task
-*/
 func (t *Journal) Delete() {
 	taskID := t.Ctx.Params["id"]
 	ID, err := strconv.Atoi(taskID)
@@ -71,22 +57,17 @@ func (t *Journal) Delete() {
 	t.Ctx.Redirect("/", http.StatusFound)
 }
 
-/*
-	NewJournal returns a new Journal controller
-*/
 func NewJournal() *Journal {
 	return &Journal{
 		Routes: []string{
-			"get;/api;Home",
+			"get;/;Home",
+			"get;/api/tasks;Index",
 			"post;/api/tasks;Create",
-			"get;/api/tasks/{id};Delete",
+			"delete;/api/tasks/{id};Delete",
 		},
 	}
 }
 
-/*
-	Init a Journal
-*/
 func init() {
 	utron.RegisterController(NewJournal())
 }
