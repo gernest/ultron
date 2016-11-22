@@ -11,7 +11,7 @@ new Vue({
     methods: {
       fetchTasks: function () {
         var tasks = [];
-        this.$http.get('/api/tasks/')
+        this.$http.get('/api/tasks')
         .then(response => response.json())
         .then(result => {
             Vue.set(this.$data, 'tasks', result);
@@ -23,7 +23,7 @@ new Vue({
       },
       addTask: function () {
         if (this.task.title.trim()) {
-          this.$http.post('/api/tasks/', this.task,{emulateJSON: true})
+          this.$http.post('/api/tasks', this.task,{emulateJSON: true})
           .then(response => response)
           .then( result => {
               this.tasks.push(this.task);
@@ -37,7 +37,7 @@ new Vue({
       deleteTask: function (index) {
         if (confirm('Really want to delete？')) {
           console.log(index);
-          this.$http.delete('/api/tasks/' + index)
+          this.$http.delete('/api/tasks' + index)
           .then(response => response)
           .then( result => {
               console.log(result);

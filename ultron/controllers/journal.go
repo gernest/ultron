@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/json"
 	"net/http"
 	"strconv"
 
@@ -24,7 +25,8 @@ func (t *Journal) Home() {
 func (t *Journal) Index() {
 	tasks := []*models.Task{}
 	t.Ctx.DB.Order("created_at desc").Find(&tasks)
-	t.Ctx.Data["data"] = tasks
+	jsonTasks, _ := json.Marshal(tasks)
+	t.Ctx.Write(jsonTasks)
 	t.JSON(200)
 }
 

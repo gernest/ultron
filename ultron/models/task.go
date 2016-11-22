@@ -7,7 +7,7 @@ import (
 )
 
 /*
-	A Task
+A Task
 */
 
 type Task struct { /* using a custom name */
