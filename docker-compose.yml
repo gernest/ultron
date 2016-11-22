@@ -43,13 +43,3 @@ services:
       - 8080:8080
     environment:
       DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_test?sslmode=disable
-  ultron:
-    build:
-      context: .
-    dockerfile: ./Dockerfile
-    environment:
-      DATABASE_URL: postgres://postgres:P4Ssw0rD!@db:5432/ultron_test?sslmode=disable
-    ports:
-      - "8080:8080"
-    depends_on:
-      - database
